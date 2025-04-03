@@ -3,16 +3,10 @@ package main
 import "fmt"
 
 func main (){
-var usuario string
-var senha string
-fmt.Print("Nome de usuário: ", usuario)
-fmt.Scan(&usuario)
-fmt.Print("Senha: ", senha)
-fmt.Scan(&senha)
-if  usuario == "admin" && senha == "1234" {
-     fmt.Println("Acesso permitido, Bem vindo lindão") 
-     } else {
-       fmt.Println("Acesso negado") 
-}
-	 }
+   var idade = [4]int{15,15,16,16}
+     nomes := [4]string {"Bruno", "Yan", "Vini", "Eduardo"}
+     fmt.Println(idade)
+     fmt.Println(nomes)
+   }
+  
 	
