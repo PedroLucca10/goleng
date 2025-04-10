@@ -5,18 +5,31 @@ import (
 )
 
 func main (){
-var numeros = [5]int{}
- 
-fmt.Println("Digite o 1º número: ")
-fmt.Scan(&numeros[0])
-fmt.Println("Digite o 2º número: ")
-fmt.Scan(&numeros[1])
-fmt.Println("Digite o 3º número: ")
-fmt.Scan(&numeros[2])
-fmt.Println("Digite o 4º número: ")
-fmt.Scan(&numeros[3])
-fmt.Println("Digite o 5º número: ")
-fmt.Scan(&numeros[4])
-fmt.Println("A soma dos números é: ", numeros[0] + numeros[1] + numeros[2] + numeros[3] + numeros[4])
+age := 45
+fmt.Println(age <= 50)
+fmt.Println(age >= 50)
+fmt.Println(age == 50)
+fmt.Println(age != 50)
 
+if age < 50 {
+  fmt.Println("menor que 30 anos")
+} else if age < 40 {
+  fmt.Println("Menor que 40 anos")
+} else {
+  fmt.Println("Não é menor que 40 anos")
 }
+
+names := []string{"Hugo Souza", "Carrillo", "Garro", "Memphis", "Alberto","Ramon Diaz"}
+
+for index, value := range names {
+  if index== 1 {
+    fmt.Println("Continue após a posição", index, "E valor", value)
+    continue
+  }
+  if index > 2 {
+    fmt.Println("Sair após", index)
+  }
+  fmt.Println("valor: ", value)
+}
+}
+
