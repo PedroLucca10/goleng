@@ -1,35 +1,22 @@
 package main
 
-import (
-  "fmt"
-)
+import "fmt"
 
-func main (){
-age := 45
-fmt.Println(age <= 50)
-fmt.Println(age >= 50)
-fmt.Println(age == 50)
-fmt.Println(age != 50)
-
-if age < 50 {
-  fmt.Println("menor que 30 anos")
-} else if age < 40 {
-  fmt.Println("Menor que 40 anos")
-} else {
-  fmt.Println("Não é menor que 40 anos")
+func sayGreeting(nome string){
+    fmt.Println("Olá", nome)
 }
 
-names := []string{"Hugo Souza", "Carrillo", "Garro", "Memphis", "Alberto","Ramon Diaz"}
-
-for index, value := range names {
-  if index== 1 {
-    fmt.Println("Continue após a posição", index, "E valor", value)
-    continue
-  }
-  if index > 2 {
-    fmt.Println("Sair após", index)
-  }
-  fmt.Println("valor: ", value)
+func addNumber(numero1 int, numero2 int){
+    return numero1 + numero2
 }
+func main(){
+    sayGreeting("Juvelino")
 }
 
+
+
+func main(){
+    sayGreeting("Juvelino")
+    resultado := addNumber (10, 20)
+    fmt.Println(resultado)
+}
