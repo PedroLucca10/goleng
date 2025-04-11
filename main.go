@@ -2,21 +2,71 @@ package main
 
 import "fmt"
 
-func sayGreeting(nome string){
-    fmt.Println("Olá", nome)
+var saldo float64
+
+func main() {
+    fmt.Println("Digite seu saldo inicial: R$")
+    fmt.Scan(&saldo)
+
+    for {
+        exibirMenu()
+        opcao := lerOpcao()
+
+        if opcao == 1 {
+            depositar()
+        } else if opcao == 2 {
+            sacar()
+        } else if opcao == 3 {
+            encerrar()
+            break
+        } else {
+            fmt.Println("Opção inválida! Use 1, 2 ou 3.")
+        }
+    }
 }
 
-func addNumber(numero1 int, numero2 int){
-    return numero1 + numero2
+func exibirMenu() {
+    fmt.Println("Saldo atual: R$", saldo)
+    fmt.Println("1. Depositar")
+    fmt.Println("2. Sacar")
+    fmt.Println("3. Sair")
+    fmt.Println("Escolha uma opção:")
 }
-func main(){
-    sayGreeting("Juvelino")
+
+func lerOpcao() int {
+    var opcao int
+    fmt.Scan(&opcao)
+    return opcao
 }
 
+func depositar() {
+    fmt.Println("Valor para depositar: R$")
+    var valor float64
+    fmt.Scan(&valor)
 
+    if valor > 0 {
+        saldo += valor
+        fmt.Println("Depósito de R$", valor, "realizado!")
+    } else {
+        fmt.Println("Valor inválido!")
+    }
+}
 
-func main(){
-    sayGreeting("Juvelino")
-    resultado := addNumber (10, 20)
-    fmt.Println(resultado)
+func sacar() {
+    fmt.Println("Valor para sacar: R$")
+    var valor float64
+    fmt.Scan(&valor)
+
+    if valor > saldo {
+        fmt.Println("Saldo insuficiente!")
+    } else if valor <= 0 {
+        fmt.Println("Valor inválido!")
+    } else {
+        saldo -= valor
+        fmt.Println("Saque de R$", valor, "realizado!")
+    }
+}
+
+func encerrar() {
+    fmt.Println("Encerrando... Saldo final:", saldo)
 }
