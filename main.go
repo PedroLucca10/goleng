@@ -1,51 +1,32 @@
 package main
 
-import "fmt"
+import( "fmt"
+)
+
+func dividir(dividendo int, divisor int) (int, string) {
+    if divisor == 0{
+        return 0, "Erro na divisão por zero"
+    }
+   return dividendo / divisor, "Sem erro"
+}
+
+func operacaoBasica(a int, b int) (int, int, int){
+    soma := a + b
+    multiplicacao := a * b 
+    subtracao := a - b
+    return soma, multiplicacao, subtracao
+}
 
 func main() {
-    var saldo float64
-    var opcao int
-    var valor float64
+    resultado, erro := dividir(10, 0)
 
-    fmt.Println("Digite seu saldo inicial: R$")
-    fmt.Scan(&saldo)
-
-    for {
-        fmt.Println("Saldo atual: R$", saldo)
-        fmt.Println("1. Depositar")
-        fmt.Println("2. Sacar")
-        fmt.Println("3. Sair")
-        fmt.Println("➔ Escolha uma opção:")
-        fmt.Scan(&opcao)
-
-        if opcao == 1 {
-            fmt.Println("Valor para depositar: R$")
-            fmt.Scan(&valor)
-            if valor > 0 {
-                saldo += valor
-                fmt.Println("Depósito de R$", valor, "realizado!")
-            } else {
-                fmt.Println("Valor inválido!")
-            }
-
-        } else if opcao == 2 {
-            fmt.Println("Valor para sacar: R$")
-            fmt.Scan(&valor)
-            if valor > saldo {
-                fmt.Println("Saldo insuficiente!")
-            } else if valor <= 0 {
-                fmt.Println("Valor inválido!")
-            } else {
-                saldo -= valor
-                fmt.Println("Saque de R$", valor, "realizado!")
-            }
-
-        } else if opcao == 3 {
-            fmt.Println("Encerrando... Saldo final:", saldo)
-            break
-
-        } else {
-            fmt.Println("Opção inválida! Use 1, 2 ou 3.")
-        }
+    if erro != "Sem erro" {
+        fmt.Println(erro)
+    } else {
+        fmt.Println("O resultado da divisão é:", resultado)
+      }
+      soma, multiplicacao, subtracao := operacaoBasica(10, 2)
+      fmt.Println(soma)
+      fmt.Println(multiplicacao)
+      fmt.Println(subtracao)
     }
-}
