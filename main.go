@@ -1,23 +1,18 @@
 package main
 
-import(
-  "fmt"
-)
+import "fmt"
 
+func main() {
+    estoque := map[string]int{
+        "Coxinha":        10,
+        "Pão de queijo":  15,
+        "Refrigerante":   20,
+    }
+    estoque["Coxinha"] -= 2    
+    estoque["Pão de queijo"] -= 1 
 
-  func main() {
-      capitais := map[string][string] {
-        "SP" : "São Paulo",
-        "RJ" : "Rio  de janeiro"
-        "ES" : "Espírito Santo"
-      }
-
-      capitais ["BH"] = "Belo Horizonte"
-
-      for k, v := range capitais {
-        fmt.Println("Sigla, Nome", k, v)
-      }
-                  
-  }
-  
-  
+    fmt.Println("Estoque atualizado:")
+    for produto, quantidade := range estoque {
+       fmt.Println(produto + ":", quantidade)
+    }
+}
